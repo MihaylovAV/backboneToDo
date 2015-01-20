@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Simple todo application</title>
+    <link rel="stylesheet" href="css/styles.css"/>
+    <link rel="stylesheet" href="js/jquery-ui/jquery-ui.min.css"/>
+    <script src="js/underscore.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/backbone.js"></script>
+    <script src="js/backbone.localStorage.js"></script>
+    <script src="js/jquery-ui/jquery-ui.min.js"></script>
+    <script src="js/datepickerConfiguration.js"></script>
+    <script src="js/application.js"></script>
+    <script type="text/template" id="taskTemplate">
+        <table class="view">
+            <tr>
+                <td><input type="checkbox" class="toggle" <%= done ? 'checked="checked"' : '' %>/></td>
+                <td><%- date %></td>
+                <td class="title"><%- title %></td>
+                <td><img src="img/delete.png" class="delete"/></td>
+            </tr>
+        </table>
+        <div class="edit">
+            <input type="text" class="when" maxlength="10" value="<%- date %>" title=""/> <input type="text" class="what" value="<%- title %>"/>
+        </div>
+</script>
+</head>
+<body>
+    <div id="wrapper">
+        <nav class="navigationBar">
+            <ul>
+                <li id="allTasks"><a href="">Все задания</a></li>
+                <li id="done"><a href="">Выполненные</a></li>
+                <li id="toDo"><a href="">Невыполненные</a></li>
+            </ul>
+        </nav>
+        <div class="todoApplication">
+            <header>
+                <h1>Задание</h1>
+                <input type="text" id="what" maxlength="80" required placeholder="Что нужно сделать?" autofocus title=""/>
+                <input type="text" class="when" id="when" maxlength="10" placeholder="Когда?" title=""/>
+                <a class="btn" href="" id="createTask">Добавить</a>
+            </header>
+        </div>
+        <ul id="taskList">
+
+        </ul>
+        <div id="footer"></div>
+    </div>
+</body>
+</html>
